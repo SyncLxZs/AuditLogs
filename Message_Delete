@@ -1,0 +1,11 @@
+module.exports.execute = async (client, message, args) =>{
+    const Discord = require('discord.js')
+
+    const auditLogs = await message.guild.fetchAuditLogs({
+        type: 'MESSAGE_DELETE'
+    })
+    const {executor, target} = auditLogs;
+
+    console.log(Object.values(auditLogs)[2].map(x => x.executor).filter(x => x.id === '458011211359846422'))
+
+}
